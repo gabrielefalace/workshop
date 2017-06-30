@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Workshop scheduler</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Workshop scheduler - upload input file</h1>
+<p>
+    <form method="POST" action="/schedule" enctype="multipart/form-data">
+        <input type="file" name="talksFile" /><br/><br/>
+        <input type="submit" value="Submit" />
+    </form>
+</p>
+</body>
+</html>

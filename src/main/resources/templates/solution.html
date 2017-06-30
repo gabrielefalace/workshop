@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Workshop scheduler</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Here's the workshop schedule:</h1>
+        <table>
+            <thead></thead>
+            <tbody>
+            <tr th:each="currentTrack,status : ${solution}">
+                <td>
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <td th:text="'Track ' + ${status.count} + ' of ' + ${status.size}"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="currentTalk : ${currentTrack.talks}">
+                                <td th:if="${currentTalk.getDuration() ge 0}" th:text="${currentTalk.getStartTime()} + ' - ' +${currentTalk.getName()} + ' - ' + ${currentTalk.getDuration()} + 'min'"></td>
+                                <td th:if="${currentTalk.getDuration() lt 0}" th:text="${currentTalk.getStartTime()} + ' - ' +${currentTalk.getName()} + ' - unlimited time'"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
